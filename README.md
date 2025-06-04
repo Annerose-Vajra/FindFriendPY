@@ -1,8 +1,19 @@
-# 1. Khởi tạo và đọc dữ liệu (Dataloader)
-## Chức năng:
+# I. Cách tải code
+## 1. Tạo folder để lưu code sau đó mở Terminal cd vào folder vừa tạo
+```
+cd "Link folder của bạn"
+```
+## 2. Clone code về
+```
+git clone https://github.com/Annerose-Vajra/FindFriendPY.git
+```
+## 3. Vào file main.py và chạy code
+# II. Chức năng của code
+## 1. Khởi tạo và đọc dữ liệu (Dataloader)
+### Chức năng:
  - Đọc dữ liệu từ các file text lưu trữ thông tin sinh viên, sở thích, thói quen và mối quan hệ bạn bè.
 
-## Chi tiết:
+### Chi tiết:
 
  - load_students(filepath): đọc file student_info.txt, mỗi dòng chứa mã sinh viên (MSSV) và tên, tạo đối tượng Student lưu vào dict students với key là MSSV.
 
@@ -12,21 +23,21 @@
 
  - load_edges(filepath, graph): đọc file friends.txt, mỗi dòng chứa cặp MSSV biểu thị một cạnh trong đồ thị bạn bè, gọi graph.add_edge(u, v) để tạo quan hệ vô hướng.
 
-# 2. Mô hình dữ liệu (Models)
-## Student:
+## 2. Mô hình dữ liệu (Models)
+### Student:
 
  - Lưu trữ thông tin cá nhân sinh viên: MSSV, tên, sở thích (set), thói quen (set).
 
  - Phương thức để thêm sở thích và thói quen.
 
-# 3. Cấu trúc dữ liệu chính: Graph
-## Graph:
+## 3. Cấu trúc dữ liệu chính: Graph
+### Graph:
 
  - Lưu trữ mạng xã hội dưới dạng đồ thị vô hướng.
 
  - Dùng dict với key là MSSV, value là danh sách các bạn trực tiếp (neighbors).
 
-## Các phương thức:
+### Các phương thức:
 
  - add_edge(u, v): thêm quan hệ bạn bè 2 chiều giữa u và v.
 
@@ -34,11 +45,11 @@
 
  - has_node(u): kiểm tra u có trong mạng không.
 
-# 4. Thuật toán gợi ý bạn bè (Recommender)
-## Ý tưởng:
+## 4. Thuật toán gợi ý bạn bè (Recommender)
+### Ý tưởng:
 Gợi ý những sinh viên chưa là bạn trực tiếp nhưng có mối quan hệ bạn chung, sở thích và thói quen tương đồng với user.
 
-## Chi tiết:
+### Chi tiết:
 
 - Lấy bạn trực tiếp của user.
 
@@ -56,7 +67,7 @@ Gợi ý những sinh viên chưa là bạn trực tiếp nhưng có mối quan 
 
 - Sắp xếp theo điểm giảm dần và trả về top-k kết quả.
 
-# 5. Giao diện và xử lý tương tác (Main)
+## 5. Giao diện và xử lý tương tác (Main)
 Hiển thị menu với các lựa chọn: thêm bạn, xóa bạn, gợi ý bạn bè, xem danh sách sinh viên, thoát.
 
 Khi người dùng chọn gợi ý bạn bè (option 3), yêu cầu nhập MSSV.
